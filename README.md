@@ -2,7 +2,7 @@
 
 This repository collects all the tasks which we want to work on.
 
-Head over to the [issues](https://github.com/srobo/tasks/issues) page to see what we're working on and what you can help with.
+Head over to the [issues](https://github.com/srobo/tasks/issues) page to see what we're working on and what you can help with. Issues are grouped into [categories](https://studentrobotics.org/runbook/volunteering/tasks/#labels).
 
 All our repos also have their own issues sections, which are used for more
 specific things. The following repos are fairly easy to help out with, without
