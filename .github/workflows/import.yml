@@ -10,12 +10,9 @@ on:
         options:
         - kickstart/main
         - comp/main
-      SR_YEAR:
+      sr_year:
         required: true
         description: The SR event year to use (e.g. 2024)
-
-env:
-  SR_YEAR: 2025
 
 jobs:
   import:
@@ -37,7 +34,7 @@ jobs:
         echo -n "${{ secrets.GITHUB_TOKEN }}" > .github-auth
     - name: Run import
       run: |
-        python scripts/import.py --area-owners --task-list --github-repo "${{ github.repository }}" --cache import_cache.json ${{ inputs.root_task }} ${{ inputs.SR_YEAR }}
+        python scripts/import.py --area-owners --task-list --github-repo "${{ github.repository }}" --cache import_cache.json ${{ inputs.root_task }} ${{ inputs.sr_year }}
     - name: Save import cache
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
