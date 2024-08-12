@@ -1,7 +1,18 @@
-name: Import Competition Tasks
+name: Import Tasks
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      root_task:
+        type: choice
+        required: true
+        description: Which event to import tasks for
+        options:
+        - kickstart/main
+        - comp/main
+      SR_YEAR:
+        required: true
+        description: The SR event year to use (e.g. 2024)
 
 env:
   SR_YEAR: 2025
@@ -26,7 +37,7 @@ jobs:
         echo -n "${{ secrets.GITHUB_TOKEN }}" > .github-auth
     - name: Run import
       run: |
-        python scripts/import.py --area-owners --task-list --github-repo "${{ github.repository }}" --cache import_cache.json comp/main $SR_YEAR
+        python scripts/import.py --area-owners --task-list --github-repo "${{ github.repository }}" --cache import_cache.json ${{ inputs.root_task }} ${{ inputs.SR_YEAR }}
     - name: Save import cache
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
