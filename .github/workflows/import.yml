@@ -17,6 +17,12 @@ on:
 jobs:
   import:
     runs-on: ubuntu-latest
+
+    # The 'import' environment requires review before allowing jobs to proceed.
+    # This is here as a molly-guard rather than a security measure, purely on
+    # the basis that this operation is disruptive.
+    environment: import
+
     steps:
     - uses: actions/checkout@v4
       with:
