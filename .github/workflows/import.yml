@@ -34,7 +34,7 @@ jobs:
         echo -n "${{ secrets.GITHUB_TOKEN }}" > .github-auth
     - name: Run import
       run: |
-        python scripts/import.py --area-owners --task-list --github-repo "${{ github.repository }}" --cache import_cache.json ${{ inputs.root_task }} ${{ inputs.sr_year }}
+        python scripts/import.py --area-owners --github-repo "${{ github.repository }}" --cache import_cache.json ${{ inputs.root_task }} ${{ inputs.sr_year }}
     - name: Save import cache
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
